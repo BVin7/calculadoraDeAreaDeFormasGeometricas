@@ -1,7 +1,10 @@
 :root {
     /*colors*/
-    --black: #111111;
-    --beige: #f5f5dc;
+    --darkBlue: rgb(15, 15, 35);
+    --black: rgb(0, 0, 0);
+    --safeWhite: rgb(220, 220, 220);
+    --fullWhite: rgb(255, 255, 255);
+    --gold: rgb(255, 215, 0);
 }
 
 * {
@@ -11,9 +14,92 @@
 }
 
 body {
-    background-color: var(--black);
-    color: var(--beige);
+    background-color: var(--darkBlue);
+    color: var(--safeWhite);
     font-family: monospace;
     font-size: 1rem;
-    text-align: center;
+}
+
+.calculator-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--gold);
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.buttons-container > button {
+    border: .3rem solid transparent;
+    border-bottom: .2rem solid var(--gold);
+    background-color: transparent;
+    color: var(--safeWhite);
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    transition: .5s;
+}
+
+.buttons-container > button:hover {
+    color: var(--darkBlue);
+    background-color: var(--fullWhite);
+    border-color: transparent;
+    border-radius: 1rem;
+}
+.buttons-container > button:active {
+    background-color: var(--black);
+    color: var(--safeWhite);
+    transition: 0s;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.quick-review-container {
+    border-color: var(--gold);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+label {
+    color: var(--safeWhite);
+}
+
+.input-container > button {
+    padding: .7rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.input-container > button:hover {
+    background-color: var(--fullWhite);
+    color: var(--darkBlue);
+}
+
+.input-container > button:active {
+    background-color: var(--black);
+    color: var(--safeWhite);
+}
+
+hr {
+    border-color: var(--gold);
+    margin-top: 2rem;
 }
