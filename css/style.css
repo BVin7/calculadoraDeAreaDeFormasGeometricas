@@ -38,7 +38,7 @@ h1 {
     gap: 3rem;
 }
 
-.buttons-container > button {
+.buttons-container>button {
     border: .3rem solid transparent;
     border-bottom: .2rem solid var(--gold);
     background-color: transparent;
@@ -48,18 +48,20 @@ h1 {
     transition: .5s;
 }
 
-.buttons-container > button:hover {
+.buttons-container>button:hover {
     color: var(--darkBlue);
     background-color: var(--fullWhite);
     border-color: transparent;
     border-radius: 1rem;
 }
-.buttons-container > button:active {
+
+.buttons-container>button:active {
     background-color: var(--black);
     color: var(--safeWhite);
     transition: 0s;
 }
 
+.calculator-container,
 .input-container {
     display: flex;
     flex-direction: column;
@@ -81,7 +83,14 @@ label {
     color: var(--safeWhite);
 }
 
-.input-container > button {
+input {
+    font-size: 1rem;
+    text-align: center;
+    border: none;
+    padding: .2rem;
+}
+
+.input-container>button {
     padding: .7rem;
     border: none;
     border-radius: 1rem;
@@ -89,12 +98,12 @@ label {
     font-size: 1.2rem;
 }
 
-.input-container > button:hover {
+.input-container>button:hover {
     background-color: var(--fullWhite);
     color: var(--darkBlue);
 }
 
-.input-container > button:active {
+.input-container>button:active {
     background-color: var(--black);
     color: var(--safeWhite);
 }

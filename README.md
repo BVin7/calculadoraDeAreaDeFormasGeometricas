@@ -1,3 +1,3 @@
-# Calculadora de Áreas de Formas Geométricas
+# Calculadora de Área de Formas Geométricas
 
 > Em desenvolvimento...
