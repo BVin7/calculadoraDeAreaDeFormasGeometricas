@@ -15,15 +15,28 @@
         <h1>Calculadora De Área de Formas Geométricas</h1>
         <h2>Escolha a forma geométrica da qual deseja calcular a área:</h2>
         <div class="buttons-container">
-            <button id="triangle">Triângulo</button>
-            <button id="rectangle">Retângulo</button>
-            <button id="square">Quadrado</button>
-            <button id="trapezium">Trapézio</button>
-            <button id="circle">Círculo</button>
+            <input type="radio" name="button" id="triangle">
+            <label for="triangle">Triângulo</label>
+
+            <input type="radio" name="button" id="rectangle">
+            <label for="rectangle">Retângulo</label>
+
+            <input type="radio" name="button" id="square">
+            <label for="square">Quadrado</label>
+
+            <input type="radio" name="button" id="trapezium">
+            <label for="trapezium">Trapézio</label>
+
+            <input type="radio" name="button" id="circle">
+            <label for="circle">Círculo</label>
         </div>
         <div class="calculator-container"></div>
     </section>
-    <section class="results-section"></section>
+    <hr>
+    <section class="results-section">
+        <h2>RESULTADO</h2>
+        <span id="span-with-results-inside"></span>
+    </section>
 </body>
 
 </html>

@@ -38,7 +38,11 @@ h1 {
     gap: 3rem;
 }
 
-.buttons-container>button {
+.buttons-container>input {
+    display: none;
+}
+
+.buttons-container>label {
     border: .3rem solid transparent;
     border-bottom: .2rem solid var(--gold);
     background-color: transparent;
@@ -48,17 +52,12 @@ h1 {
     transition: .5s;
 }
 
-.buttons-container>button:hover {
+.buttons-container>label:hover,
+.buttons-container>input:checked+label {
     color: var(--darkBlue);
     background-color: var(--fullWhite);
     border-color: transparent;
     border-radius: 1rem;
-}
-
-.buttons-container>button:active {
-    background-color: var(--black);
-    color: var(--safeWhite);
-    transition: 0s;
 }
 
 .calculator-container,
@@ -77,6 +76,15 @@ h1 {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+
+#quickReviewImage {
+    max-width: 21rem;
+}
+
+.quick-review-container>p {
+    font-weight: 700;
+    color: var(--fullWhite);
 }
 
 label {
@@ -111,4 +119,8 @@ input {
 hr {
     border-color: var(--gold);
     margin-top: 2rem;
+}
+
+.results-section {
+    text-align: center;
 }
