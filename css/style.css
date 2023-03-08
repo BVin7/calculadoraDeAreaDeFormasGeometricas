@@ -13,14 +13,25 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--darkBlue);
     color: var(--safeWhite);
     font-family: monospace;
     font-size: 1rem;
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "calculator-section"
+        "results-section";
+    grid-area: calculator-section;
+    grid-area: results-section;
 }
 
-.calculator-section {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,17 +43,17 @@ h1 {
     color: var(--gold);
 }
 
-.buttons-container {
+#buttons-container {
     display: flex;
     justify-content: center;
     gap: 3rem;
 }
 
-.buttons-container>input {
+.input-radio {
     display: none;
 }
 
-.buttons-container>label {
+.input-radio-label-as-button {
     border: .3rem solid transparent;
     border-bottom: .2rem solid var(--gold);
     background-color: transparent;
@@ -52,37 +63,33 @@ h1 {
     transition: .5s;
 }
 
-.buttons-container>label:hover,
-.buttons-container>input:checked+label {
+.input-radio-label-as-button:hover,
+.input-radio:checked+.input-radio-label-as-button {
     color: var(--darkBlue);
     background-color: var(--fullWhite);
     border-color: transparent;
     border-radius: 1rem;
 }
 
-.calculator-container,
-.input-container {
+.container-child,
+.container-grandchild {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 }
 
-.quick-review-container {
-    border-color: var(--gold);
+#quick-review-container {
+    border: .2rem solid var(--gold);
     border-radius: 1rem;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 
 #quickReviewImage {
     max-width: 21rem;
 }
 
-.quick-review-container>p {
+p {
     font-weight: 700;
     color: var(--fullWhite);
 }
@@ -91,36 +98,47 @@ label {
     color: var(--safeWhite);
 }
 
-input {
+.input-number {
     font-size: 1rem;
     text-align: center;
     border: none;
     padding: .2rem;
 }
 
-.input-container>button {
+#calculateAreaButton {
     padding: .7rem;
     border: none;
     border-radius: 1rem;
     background-color: var(--gold);
+    color: var(--darkBlue);
     font-size: 1.2rem;
+    font-weight: bolder;
+    text-decoration: none;
 }
 
-.input-container>button:hover {
+#calculateAreaButton:hover {
     background-color: var(--fullWhite);
     color: var(--darkBlue);
 }
 
-.input-container>button:active {
+#calculateAreaButton:active {
     background-color: var(--black);
     color: var(--safeWhite);
 }
 
-hr {
-    border-color: var(--gold);
+#results-section {
+    background-color: var(--black);
     margin-top: 2rem;
+    padding: 2rem;
+    gap: 0rem;
 }
 
-.results-section {
-    text-align: center;
+#results-header {
+    color: var(--gold);
+    font-size: 1.7rem;
+}
+
+#span-with-results-inside {
+    font-size: 7rem;
+    border-bottom: .2rem solid var(--gold);
 }

@@ -11,30 +11,29 @@
 </head>
 
 <body>
-    <section class="calculator-section">
+    <section id="calculator-section" class="container">
         <h1>Calculadora De Área de Formas Geométricas</h1>
         <h2>Escolha a forma geométrica da qual deseja calcular a área:</h2>
-        <div class="buttons-container">
-            <input type="radio" name="button" id="triangle">
-            <label for="triangle">Triângulo</label>
+        <div id="buttons-container">
+            <input type="radio" name="button" id="triangle" class="input-radio">
+            <label for="triangle" class="input-radio-label-as-button">Triângulo</label>
 
-            <input type="radio" name="button" id="rectangle">
-            <label for="rectangle">Retângulo</label>
+            <input type="radio" name="button" id="rectangle" class="input-radio">
+            <label for="rectangle" class="input-radio-label-as-button">Retângulo</label>
 
-            <input type="radio" name="button" id="square">
-            <label for="square">Quadrado</label>
+            <input type="radio" name="button" id="square" class="input-radio">
+            <label for="square" class="input-radio-label-as-button">Quadrado</label>
 
-            <input type="radio" name="button" id="trapezium">
-            <label for="trapezium">Trapézio</label>
+            <input type="radio" name="button" id="trapezium" class="input-radio">
+            <label for="trapezium" class="input-radio-label-as-button">Trapézio</label>
 
-            <input type="radio" name="button" id="circle">
-            <label for="circle">Círculo</label>
+            <input type="radio" name="button" id="circle" class="input-radio">
+            <label for="circle" class="input-radio-label-as-button">Círculo</label>
         </div>
-        <div class="calculator-container"></div>
+        <div id="calculator-container" class="container-child"></div>
     </section>
-    <hr>
-    <section class="results-section">
-        <h2>RESULTADO</h2>
+    <section id="results-section" class="container">
+        <h2 id="results-header"></h2>
         <span id="span-with-results-inside"></span>
     </section>
 </body>

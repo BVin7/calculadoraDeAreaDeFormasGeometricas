@@ -4,15 +4,18 @@ const squareButton = document.querySelector("#square");
 const trapeziumButton = document.querySelector("#trapezium");
 const circleButton = document.querySelector("#circle");
 
-const calculatorContainer = document.querySelector(".calculator-container");
-const resultsSection = document.querySelector(".results-section");
+const calculatorContainer = document.querySelector("#calculator-container");
+const resultsSection = document.querySelector("#results-section");
+const resultsHeader = document.querySelector("#results-header");
 const spanWithResultsInside = document.querySelector("#span-with-results-inside");
 
-triangleButton.addEventListener("click", () => {
+function createTriangleAreaCalculator() {
+    resultsHeader.innerText = "";
+    spanWithResultsInside.innerText = "";
+
     const quickReviewContainer = document.createElement("div");
-    quickReviewContainer.className = "quick-review-container";
-    quickReviewContainer.style.borderWidth = ".2rem";
-    quickReviewContainer.style.borderStyle = "solid";
+    quickReviewContainer.id = "quick-review-container";
+    quickReviewContainer.className = "container-grandchild";
 
     const triangleAreaQuickReviewHeader = document.createElement("h3");
     triangleAreaQuickReviewHeader.innerText = "Cálculo da área de um triângulo:"
@@ -26,11 +29,13 @@ triangleButton.addEventListener("click", () => {
     triangleAreaQuickReview.innerText = "Área = base (b) * altura (h) / 2";
 
     const inputContainer = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
+    inputContainer.className = "container-grandchild";
 
     const triangleBaseInput = document.createElement("input");
     triangleBaseInput.setAttribute("type", "number");
     triangleBaseInput.id = "triangleBaseInput";
+    triangleBaseInput.className = "input-number";
 
     const triangleBaseInputLabel = document.createElement("label");
     triangleBaseInputLabel.setAttribute("for", "triangleBaseInput");
@@ -39,13 +44,15 @@ triangleButton.addEventListener("click", () => {
     const triangleHeightInput = document.createElement("input");
     triangleHeightInput.setAttribute("type", "number");
     triangleHeightInput.id = "triangleHeightInput";
+    triangleHeightInput.className = "input-number";
 
     const triangleHeightInputLabel = document.createElement("label");
     triangleHeightInputLabel.setAttribute("for", "triangleHeightInput");
     triangleHeightInputLabel.innerText = "Informe a altura do triângulo";
 
-    const calculateTriangleAreaButton = document.createElement("button");
-    calculateTriangleAreaButton.id = "calculateAreaButton"
+    const calculateTriangleAreaButton = document.createElement("a");
+    calculateTriangleAreaButton.setAttribute("href", "#results-section");
+    calculateTriangleAreaButton.id = "calculateAreaButton";
     calculateTriangleAreaButton.innerText = "Calcular a área";
 
     calculatorContainer.replaceChildren(quickReviewContainer, inputContainer);
@@ -57,15 +64,20 @@ triangleButton.addEventListener("click", () => {
         const triangleBase = parseFloat(triangleBaseInput.value);
         const triangleHeight = parseFloat(triangleHeightInput.value);
         const results = (triangleBase * triangleHeight) / 2;
-        spanWithResultsInside.replaceChildren(results);
+        resultsHeader.innerText = "A ÁREA DO TRIÂNGULO É";
+        spanWithResultsInside.innerText = results;
+        triangleBaseInput.value = "";
+        triangleHeightInput.value = "";
     });
-});
+};
 
-rectangleButton.addEventListener("click", () => {
+function createRectangleAreaCalculator() {
+    resultsHeader.innerText = "";
+    spanWithResultsInside.innerText = "";
+
     const quickReviewContainer = document.createElement("div");
-    quickReviewContainer.className = "quick-review-container";
-    quickReviewContainer.style.borderWidth = ".2rem"
-    quickReviewContainer.style.borderStyle = "solid"
+    quickReviewContainer.id = "quick-review-container";
+    quickReviewContainer.className = "container-grandchild";
 
     const rectangleAreaQuickReviewHeader = document.createElement("h3");
     rectangleAreaQuickReviewHeader.innerText = "Cálculo da área de um retângulo:"
@@ -79,11 +91,13 @@ rectangleButton.addEventListener("click", () => {
     rectangleAreaQuickReview.innerText = "Área = base (b) x altura (h)";
 
     const inputContainer = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
+    inputContainer.className = "container-grandchild";
 
     const rectangleBaseInput = document.createElement("input");
     rectangleBaseInput.setAttribute("type", "number");
     rectangleBaseInput.id = "rectangleBaseInput";
+    rectangleBaseInput.className = "input-number";
 
     const rectangleBaseInputLabel = document.createElement("label");
     rectangleBaseInputLabel.setAttribute("for", "rectangleBaseInput");
@@ -92,12 +106,14 @@ rectangleButton.addEventListener("click", () => {
     const rectangleHeightInput = document.createElement("input");
     rectangleHeightInput.setAttribute("type", "number");
     rectangleHeightInput.id = "rectangleHeightInput";
+    rectangleHeightInput.className = "input-number";
 
     const rectangleHeightInputLabel = document.createElement("label");
     rectangleHeightInputLabel.setAttribute("for", "rectangleHeightInput");
     rectangleHeightInputLabel.innerText = "Informe a altura do retângulo";
 
-    const calculateRectangleAreaButton = document.createElement("button");
+    const calculateRectangleAreaButton = document.createElement("a");
+    calculateRectangleAreaButton.setAttribute("href", "#results-section");
     calculateRectangleAreaButton.id = "calculateAreaButton";
     calculateRectangleAreaButton.innerText = "Calcular a área";
 
@@ -110,15 +126,20 @@ rectangleButton.addEventListener("click", () => {
         const rectangleBase = parseFloat(rectangleBaseInput.value);
         const rectangleHeight = parseFloat(rectangleHeightInput.value);
         const results = rectangleBase * rectangleHeight;
-        spanWithResultsInside.replaceChildren(results);
+        resultsHeader.innerText = "A ÁREA DO RETÂNGULO É";
+        spanWithResultsInside.innerText = results;
+        rectangleBaseInput.value = "";
+        rectangleHeightInput.value = "";
     });
-});
+};
 
-squareButton.addEventListener("click", () => {
+function createSquareAreaCalculator() {
+    resultsHeader.innerText = "";
+    spanWithResultsInside.innerText = "";
+
     const quickReviewContainer = document.createElement("div");
-    quickReviewContainer.className = "quick-review-container";
-    quickReviewContainer.style.borderWidth = ".2rem"
-    quickReviewContainer.style.borderStyle = "solid"
+    quickReviewContainer.id = "quick-review-container";
+    quickReviewContainer.className = "container-grandchild";
 
     const squareAreaQuickReviewHeader = document.createElement("h3");
     squareAreaQuickReviewHeader.innerText = "Cálculo da área de um quadrado:"
@@ -132,17 +153,20 @@ squareButton.addEventListener("click", () => {
     squareAreaQuickReview.innerText = "Área = lado (L) elevado ao quadrado";
 
     const inputContainer = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
+    inputContainer.className = "container-grandchild";
 
     const squareSideInput = document.createElement("input");
     squareSideInput.setAttribute("type", "number");
     squareSideInput.id = "squareSideInput";
+    squareSideInput.className = "input-number";
 
     const squareSideInputLabel = document.createElement("label");
     squareSideInputLabel.setAttribute("for", "squareSideInput");
     squareSideInputLabel.innerText = "Informe o lado do quadrado";
 
-    const calculateSquareAreaButton = document.createElement("button");
+    const calculateSquareAreaButton = document.createElement("a");
+    calculateSquareAreaButton.setAttribute("href", "#results-section");
     calculateSquareAreaButton.id = "calculateAreaButton";
     calculateSquareAreaButton.innerText = "Calcular a área";
 
@@ -154,15 +178,19 @@ squareButton.addEventListener("click", () => {
     calculateTheArea.addEventListener("click", () => {
         const squareSide = parseFloat(squareSideInput.value);
         const results = squareSide ** 2;
-        spanWithResultsInside.replaceChildren(results);
+        resultsHeader.innerText = "A ÁREA DO QUADRADO É";
+        spanWithResultsInside.innerText = results;
+        squareSideInput.value = "";
     });
-});
+};
 
-trapeziumButton.addEventListener("click", () => {
+function createTrapeziumAreaCalculator() {
+    resultsHeader.innerText = "";
+    spanWithResultsInside.innerText = "";
+
     const quickReviewContainer = document.createElement("div");
-    quickReviewContainer.className = "quick-review-container";
-    quickReviewContainer.style.borderWidth = ".2rem";
-    quickReviewContainer.style.borderStyle = "solid";
+    quickReviewContainer.id = "quick-review-container";
+    quickReviewContainer.className = "container-grandchild";
 
     const trapeziumAreaQuickReviewHeader = document.createElement("h3");
     trapeziumAreaQuickReviewHeader.innerText = "Cálculo da área de um trapézio:"
@@ -176,11 +204,13 @@ trapeziumButton.addEventListener("click", () => {
     trapeziumAreaQuickReview.innerText = "Área = (base maior (B) + base menor (b)) * altura (h) / 2";
 
     const inputContainer = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
+    inputContainer.className = "container-grandchild";
 
     const trapeziumHigherBaseInput = document.createElement("input");
     trapeziumHigherBaseInput.setAttribute("type", "number");
     trapeziumHigherBaseInput.id = "trapeziumHigherBaseInput";
+    trapeziumHigherBaseInput.className = "input-number";
 
     const trapeziumHigherBaseInputLabel = document.createElement("label");
     trapeziumHigherBaseInputLabel.setAttribute("for", "trapeziumHigherBaseInput");
@@ -189,6 +219,7 @@ trapeziumButton.addEventListener("click", () => {
     const trapeziumLowerBaseInput = document.createElement("input");
     trapeziumLowerBaseInput.setAttribute("type", "number");
     trapeziumLowerBaseInput.id = "trapeziumLowerBaseInput";
+    trapeziumLowerBaseInput.className = "input-number";
 
     const trapeziumLowerBaseInputLabel = document.createElement("label");
     trapeziumLowerBaseInputLabel.setAttribute("for", "trapeziumLowerBaseInput");
@@ -197,12 +228,14 @@ trapeziumButton.addEventListener("click", () => {
     const trapeziumHeightInput = document.createElement("input");
     trapeziumHeightInput.setAttribute("type", "number");
     trapeziumHeightInput.id = "trapeziumHeightInput";
+    trapeziumHeightInput.className = "input-number";
 
     const trapeziumHeightInputLabel = document.createElement("label");
     trapeziumHeightInputLabel.setAttribute("for", "trapeziumHeightInput");
     trapeziumHeightInputLabel.innerText = "Informe a altura do trapézio";
 
-    const calculateTrapeziumAreaButton = document.createElement("button");
+    const calculateTrapeziumAreaButton = document.createElement("a");
+    calculateTrapeziumAreaButton.setAttribute("href", "#results-section");
     calculateTrapeziumAreaButton.id = "calculateAreaButton";
     calculateTrapeziumAreaButton.innerText = "Calcular a área";
 
@@ -216,15 +249,21 @@ trapeziumButton.addEventListener("click", () => {
         const trapeziumLowerBase = parseFloat(trapeziumLowerBaseInput.value);
         const trapeziumHeight = parseFloat(trapeziumHeightInput.value);
         const results = (trapeziumHigherBase + trapeziumLowerBase) * trapeziumHeight / 2;
-        spanWithResultsInside.replaceChildren(results);
+        resultsHeader.innerText = "A ÁREA DO TRAPÉZIO É";
+        spanWithResultsInside.innerText = results;
+        trapeziumHigherBaseInput.value = "";
+        trapeziumLowerBaseInput.value = "";
+        trapeziumHeightInput.value = "";
     });
-});
+};
 
-circleButton.addEventListener("click", () => {
+function createCircleAreaCalculator() {
+    resultsHeader.innerText = "";
+    spanWithResultsInside.innerText = "";
+
     const quickReviewContainer = document.createElement("div");
-    quickReviewContainer.className = "quick-review-container";
-    quickReviewContainer.style.borderWidth = ".2rem"
-    quickReviewContainer.style.borderStyle = "solid"
+    quickReviewContainer.id = "quick-review-container";
+    quickReviewContainer.className = "container-grandchild";
 
     const circleAreaQuickReviewHeader = document.createElement("h3");
     circleAreaQuickReviewHeader.innerText = "Cálculo da área de um círculo:"
@@ -238,17 +277,20 @@ circleButton.addEventListener("click", () => {
     circleAreaQuickReview.innerText = "Área = pi (π) x raio (r) elevado ao quadrado";
 
     const inputContainer = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
+    inputContainer.className = "container-grandchild";
 
     const circleRadiusInput = document.createElement("input");
     circleRadiusInput.setAttribute("type", "number");
     circleRadiusInput.id = "circleRadiusInput";
+    circleRadiusInput.className = "input-number";
 
     const circleRadiusInputLabel = document.createElement("label");
     circleRadiusInputLabel.setAttribute("for", "circleRadiusInput");
     circleRadiusInputLabel.innerText = "Informe o raio do círculo";
 
-    const calculateCircleAreaButton = document.createElement("button");
+    const calculateCircleAreaButton = document.createElement("a");
+    calculateCircleAreaButton.setAttribute("href", "#results-section");
     calculateCircleAreaButton.id = "calculateAreaButton";
     calculateCircleAreaButton.innerText = "Calcular a área";
 
@@ -260,6 +302,28 @@ circleButton.addEventListener("click", () => {
     calculateTheArea.addEventListener("click", () => {
         const circleRadius = parseFloat(circleRadiusInput.value);
         const results = 3.14 * (circleRadius ** 2);
-        spanWithResultsInside.replaceChildren(results);
+        resultsHeader.innerText = "A ÁREA DO CÍRCULO É";
+        spanWithResultsInside.innerText = results;
+        circleRadiusInput.value = "";
     });
+};
+
+triangleButton.addEventListener("click", () => {
+    createTriangleAreaCalculator();
+});
+
+rectangleButton.addEventListener("click", () => {
+    createRectangleAreaCalculator();
+});
+
+squareButton.addEventListener("click", () => {
+    createSquareAreaCalculator();
+});
+
+trapeziumButton.addEventListener("click", () => {
+    createTrapeziumAreaCalculator();
+});
+
+circleButton.addEventListener("click", () => {
+    createCircleAreaCalculator();
 });
